@@ -1,10 +1,14 @@
 import { CameraIcon, MicIcon } from "lucide-react-native";
+import { useState } from "react";
 import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { AudioModal } from "./AudioModal";
 import { Button } from "./Button";
 
 export function CreateMealBottomBar() {
   const { bottom } = useSafeAreaInsets();
+
+  const [isAudioModalOpen, setIsAudioModalOpen] = useState(false);
 
   return (
     <View
@@ -13,13 +17,18 @@ export function CreateMealBottomBar() {
     >
       <View className="flex-row mx-auto gap-4 mt-4">
         <Button size="icon" color="gray">
-          <MicIcon />
+          <MicIcon onPress={() => setIsAudioModalOpen(true)} />
         </Button>
 
         <Button size="icon" color="gray">
           <CameraIcon />
         </Button>
       </View>
+
+      <AudioModal
+        open={isAudioModalOpen}
+        onClose={() => setIsAudioModalOpen(false)}
+      />
     </View>
   );
 }
