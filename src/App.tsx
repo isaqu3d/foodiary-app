@@ -10,8 +10,7 @@ import { View } from "react-native";
 
 import { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { HomeHeader } from "./components/HomHeader";
-import { MealsList } from "./components/MealsLIst";
+import { Home } from "./screens/Home";
 import "./styles/global.css";
 
 SplashScreen.preventAutoHideAsync();
@@ -37,9 +36,7 @@ export default function App() {
   return (
     <View className="flex-1">
       <SafeAreaProvider>
-        <HomeHeader />
-
-        <MealsList />
+        <Home />
       </SafeAreaProvider>
     </View>
   );
