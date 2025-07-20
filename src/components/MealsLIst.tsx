@@ -1,5 +1,20 @@
-import { Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import { MealCard } from "./MealCard";
+
+const meals = [
+  {
+    id: String(Math.random()),
+    name: "Almoço",
+  },
+  {
+    id: String(Math.random()),
+    name: "cafe",
+  },
+  {
+    id: String(Math.random()),
+    name: "janta",
+  },
+];
 
 export function MealsList() {
   return (
@@ -8,11 +23,15 @@ export function MealsList() {
         REFEIÇÕES
       </Text>
 
-      <View className="gap-8 mt-4">
-        <MealCard name="Café da manhã" />
-        <MealCard name="Café da manhã" />
-        <MealCard name="Café da manhã" />
-        <MealCard name="Café da manhã" />
+      <View className="mt-4">
+        <FlatList
+          data={meals}
+          contentContainerClassName="gap-8"
+          keyExtractor={(meals) => meals.id}
+          renderItem={({ item: meal }) => (
+            <MealCard id={meal.id} name={meal.name} />
+          )}
+        />
       </View>
     </View>
   );
