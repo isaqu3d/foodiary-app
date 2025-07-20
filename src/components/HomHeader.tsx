@@ -1,6 +1,7 @@
 import { LogOutIcon } from "lucide-react-native";
 import { Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { colors } from "../styles/colors";
 
 export function HomeHeader() {
   return (
@@ -15,8 +16,8 @@ export function HomeHeader() {
           </Text>
         </View>
 
-        <TouchableOpacity className="size-12">
-          <LogOutIcon />
+        <TouchableOpacity className="size-12 items-center justify-center">
+          <LogOutIcon size={20} color={colors.black[700]} />
         </TouchableOpacity>
       </SafeAreaView>
     </View>
